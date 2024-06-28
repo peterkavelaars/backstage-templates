@@ -1,13 +1,13 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: backstage-net-template
-  title: Net App with GitHub Actions
+  name: backstage-test-template
+  title: Node App with GitHub Actions
   description: Create a Node service with GitHub Actions workflows
   tags:
     - recommended
 spec:
-  owner: peterkavelaars@gmail.com
+  owner: guotiexin@gmail.com
   type: service
   parameters:
     - title: Provide some simple information
@@ -35,6 +35,7 @@ spec:
     - title: Choose a location
       required:
         - repoUrl
+        - gitguardianApiKey
       properties:
         repoUrl:
           title: Repository Location
@@ -43,7 +44,11 @@ spec:
           ui:options:
             allowedHosts:
               - github.com
-        
+        gitguardianApiKey:
+          title: GITGUARDIAN_API_KEY
+          type: string
+          description: API Key from GitGuardian, used for CI to scan secrets https://dashboard.gitguardian.com/api/personal-access-tokens.
+
   steps:
     - id: template
       name: Fetch Skeleton + Template
@@ -67,6 +72,8 @@ spec:
         repoUrl: ${{ parameters.repoUrl }}
         defaultBranch: main
         repoVisibility: public
+        secrets:
+          "GITGUARDIAN_API_KEY": ${{ parameters.gitguardianApiKey }}
 
     - id: register
       name: Register
