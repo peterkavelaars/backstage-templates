@@ -1,2 +1,0 @@
--pool: azure-pipeline
- image: windows-latest
