@@ -1,9 +1,9 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: backstage-dotnet-template
-  title: .Net App with GitHub Actions
-  description: Create a DotNet service with GitHub Actions workflows
+  name: backstage-azure-dotnet-template
+  title: .Net App with Azure DevOps Actions
+  description: Create a DotNet service with Azure DevOps Actions workflows
   tags:
     - recommended
 spec:
