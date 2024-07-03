@@ -45,6 +45,8 @@ spec:
               - dev.azure.com
             allowedOrganizations:
               - kavelaarshomesite
+            allowedProjects:
+              - CZ
 
   steps:
     - id: template
