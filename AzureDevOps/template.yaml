@@ -43,6 +43,8 @@ spec:
           ui:options:
             allowedHosts:
               - dev.azure.com
+            allowedOrganizations:
+              - kavelaarshomesite
 
   steps:
     - id: template
